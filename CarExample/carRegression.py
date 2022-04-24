@@ -10,8 +10,8 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 500)
 pd.set_option('display.width', 1500)
 
-cars = pd.read_csv(".\\Data\\DataOnlyNumbers.csv", sep=";")  
-testCars = pd.read_csv(".\\Data\\carTestData.csv", sep=";")  
+cars = pd.read_csv(".\\Data\\SeperatedTestData\\TrainData.csv", sep=";")  
+testCars = pd.read_csv(".\\Data\\SeperatedTestData\\Testdata.csv", sep=";")  
 
 print(cars.head(1))
 print(cars.Price)
