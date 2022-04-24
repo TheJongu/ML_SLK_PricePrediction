@@ -6,8 +6,12 @@ from sklearn.model_selection import train_test_split
 from sklearn import linear_model 
 from sklearn.metrics import r2_score 
 
-cars = pd.read_csv(".\\CarExample\\Data\\DataOnlyNumbers.csv", sep=";")  
-testCars = pd.read_csv(".\\CarExample\\Data\\carTestData.csv", sep=";")  
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_columns', 500)
+pd.set_option('display.width', 1500)
+
+cars = pd.read_csv(".\\Data\\DataOnlyNumbers.csv", sep=";")  
+testCars = pd.read_csv(".\\Data\\carTestData.csv", sep=";")  
 
 print(cars.head(1))
 print(cars.Price)
@@ -41,12 +45,19 @@ X_train, X_test, y_train, y_test = train_test_split(
 
 
 from catboost import CatBoostRegressor 
- 
-#model = CatBoostRegressor(iterations=3000, learning_rate=0.03)     #0.9732946822258107
-#model = CatBoostRegressor(iterations=3000, learning_rate=0.3)      #0.9750525930335191
-#model = CatBoostRegressor(iterations=3000, learning_rate=0.18)      #0.9738876960789342
-model = CatBoostRegressor(iterations=1000, learning_rate=0.03)     #0.
-#model = CatBoostRegressor(iterations=3000, learning_rate=0.03)     #0.
+
+#model = CatBoostRegressor(iterations=1000, learning_rate=0.03)     #0.8956337512894534
+
+#model = CatBoostRegressor(iterations=1700, learning_rate=0.03)      #0.9388148446548709
+
+#model = CatBoostRegressor(iterations=5000, learning_rate=0.03)      #0.975086189681504
+
+#best till now - maybe overfitted?
+model = CatBoostRegressor(iterations=10000, learning_rate=0.03)      #0.9797954315617974
+
+# bit overfitted
+#model = CatBoostRegressor(iterations=55000, learning_rate=0.02)      #0.9801175821423871
+
 model.fit( 
 	X_train, y_train, 
 	eval_set=(X_test, y_test), 
