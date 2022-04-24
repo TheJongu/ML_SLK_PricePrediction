@@ -1,0 +1,16 @@
+Automatic
+0 Manuell
+1 Automatic
+2 NoValue
+
+Color
+0 Silver 
+1 Grau
+2 Rot
+3 Schwarz
+4 Blau
+5 Weiß
+6 Grün
+7 Beige
+8 Bronze
+9 Gelb
